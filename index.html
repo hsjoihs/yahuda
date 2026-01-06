@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日の箭牌（やふだ）</title>
+</head>
+
+<body>
+    <h1>今日の箭牌（やふだ）</h1>
+    <script>
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+
+        const diff = Math.floor((today.getTime() - new Date(2026, 0, 7).getTime()) / (1000 * 60 * 60 * 24));
+        console.log(diff);
+
+        switch (diff % 3) {
+            case 0:
+                document.write(`${year} 年 ${month} 月 ${day} 日は<span style="display: inline-block; color: green; font-size: 150%;"><ruby>發<rt>はつ</rt></ruby><ruby>箭牌<rt>やふだ</rt></ruby></span>`);
+                break;
+            case 1:
+            case -2:
+                document.write(`${year} 年 ${month} 月 ${day} 日は<span style="display: inline-block; color: red; font-size: 150%;"><ruby>中<rt>ちゅん</rt></ruby><ruby>箭牌<rt>やふだ</rt></ruby></span>`);
+                break;
+            case 2:
+            case -1:
+                document.write(`${year} 年 ${month} 月 ${day} 日は<span style="display: inline-block; color: white; background-color: black; font-size: 150%;"><ruby>白<rt>はく</rt></ruby><ruby>箭牌<rt>やふだ</rt></ruby></span>`);
+                break;
+        }
+
+        
+    </script>
+</body>
